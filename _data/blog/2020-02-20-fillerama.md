@@ -278,15 +278,15 @@ After designing the model we have compiled it. For loss function we have used Ca
   Original output is too big so I have only shown the first and last few epochs only. 
 
   ```
-  Epoch 1/15
+  Epoch 1/20
   448/448 [==============================] - ETA: 0s - loss: 1.8055 - accuracy: 0.3056
   Epoch 00001: saving model to model_weights.h5
   448/448 [==============================] - 124s 277ms/step - loss: 1.8055 - accuracy: 0.3056 - val_loss: 1.7709 - val_accuracy: 0.3627 - lr: 5.0000e-04
-  Epoch 2/15
+  Epoch 2/20
   448/448 [==============================] - ETA: 0s - loss: 1.4822 - accuracy: 0.4320
   Epoch 00002: saving model to model_weights.h5
   448/448 [==============================] - 125s 279ms/step - loss: 1.4822 - accuracy: 0.4320 - val_loss: 1.3154 - val_accuracy: 0.4901 - lr: 5.0000e-04
-  Epoch 3/15
+  Epoch 3/20
   448/448 [==============================] - ETA: 0s - loss: 1.3252 - accuracy: 0.4908
   Epoch 00003: saving model to model_weights.h5
   448/448 [==============================] - 125s 279ms/step - loss: 1.3252 - accuracy: 0.4908 - val_loss: 1.4431 - val_accuracy: 0.4707 - lr: 5.0000e-04
@@ -321,6 +321,6 @@ After designing the model we have compiled it. For loss function we have used Ca
 
 ## Conclusion
 
-We successfully trained a  model that can identify facial expression with a decent amount of accuracy. We can further improve the model by fine-tuning existing state of the art models like VGG-16, Resnet, etc. Which will try to do in the future. We have also implemented a flask application which can detect such expressions directly from webcam or a video stream. We will cover that topic in a separate post as it is out of the scope for this one. Though if you want to explore it the code can be found on my [Github](https://github.com/hrshcdry/Facial_Expression_Recognition).
+We successfully trained a  model that can identify facial expression with a decent amount of accuracy. We can further improve the model by fine-tuning existing state of the art models like VGG-16, Resnet, etc. Which will try to do in the future. We have also implemented a flask application which can detect such expressions directly from webcam or a video stream. We will cover that topic in a separate post as it is out of the scope for this one. Though if you want to explore it, the code can be found on my [Github](https://github.com/hrshcdry/Facial_Expression_Recognition).
 
-If you have any idea feel free to write at [noob@harsh.codes](mailto:noob@harsh.codes).
+If you have any idea feel free to write me at [noob@harsh.codes](mailto:noob@harsh.codes).
