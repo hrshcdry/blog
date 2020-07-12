@@ -249,3 +249,78 @@ _________________________________________________________________
 After designing the model we have compiled it. For loss function we have used Categorial Crossentropy and Adam is used as optimizer as it works best most of the time. In the end we have called *model.summary(),* which prints the summary of the model. In output we can see the summary which shows all the layers, their respective output shapes and number of parameters. Now we will move to the training section.
 
 * ### Model Training
+
+  ```python
+  %%time
+
+  epochs = 20
+  steps_per_epoch = train_generator.n//train_generator.batch_size
+  validation_steps = validation_generator.n//validation_generator.batch_size
+
+  reduce_lr = ReduceLROnPlateau(monitor='val_loss', factor=0.1,
+                                patience=2, min_lr=0.00001, mode='auto')
+  checkpoint = ModelCheckpoint("model_weights.h5", monitor='val_accuracy',
+                               save_weights_only=True, mode='max', verbose=1)
+  callbacks = [checkpoint, reduce_lr]
+
+  history = model.fit(
+      x=train_generator,
+      steps_per_epoch=steps_per_epoch,
+      epochs=epochs,
+      validation_data = validation_generator,
+      validation_steps = validation_steps,
+      callbacks=callbacks
+  )
+  ```
+
+  Ouptput:
+
+  Original output is too big so I have only shown the first and last few epochs only. 
+
+  ```
+  Epoch 1/15
+  448/448 [==============================] - ETA: 0s - loss: 1.8055 - accuracy: 0.3056
+  Epoch 00001: saving model to model_weights.h5
+  448/448 [==============================] - 124s 277ms/step - loss: 1.8055 - accuracy: 0.3056 - val_loss: 1.7709 - val_accuracy: 0.3627 - lr: 5.0000e-04
+  Epoch 2/15
+  448/448 [==============================] - ETA: 0s - loss: 1.4822 - accuracy: 0.4320
+  Epoch 00002: saving model to model_weights.h5
+  448/448 [==============================] - 125s 279ms/step - loss: 1.4822 - accuracy: 0.4320 - val_loss: 1.3154 - val_accuracy: 0.4901 - lr: 5.0000e-04
+  Epoch 3/15
+  448/448 [==============================] - ETA: 0s - loss: 1.3252 - accuracy: 0.4908
+  Epoch 00003: saving model to model_weights.h5
+  448/448 [==============================] - 125s 279ms/step - loss: 1.3252 - accuracy: 0.4908 - val_loss: 1.4431 - val_accuracy: 0.4707 - lr: 5.0000e-04
+  .
+  .
+  .
+  Epoch 18/20
+  448/448 [==============================] - ETA: 0s - loss: 0.8328 - accuracy: 0.6891
+  Epoch 00018: saving model to model_weights.h5
+  448/448 [==============================] - 126s 281ms/step - loss: 0.8328 - accuracy: 0.6891 - val_loss: 0.9688 - val_accuracy: 0.6445 - lr: 5.0000e-05
+  Epoch 19/20
+  448/448 [==============================] - ETA: 0s - loss: 0.8178 - accuracy: 0.6955
+  Epoch 00019: saving model to model_weights.h5
+  448/448 [==============================] - 125s 279ms/step - loss: 0.8178 - accuracy: 0.6955 - val_loss: 0.9579 - val_accuracy: 0.6498 - lr: 1.0000e-05
+  Epoch 20/20
+  448/448 [==============================] - ETA: 0s - loss: 0.8176 - accuracy: 0.6970
+  Epoch 00020: saving model to model_weights.h5
+  448/448 [==============================] - 125s 278ms/step - loss: 0.8176 - accuracy: 0.6970 - val_loss: 0.9549 - val_accuracy: 0.6547 - lr: 1.0000e-05
+  ```
+
+  I first trained it with 15 epochs but after training I realized that loss was still decreasing so I trained it with another 5 epochs so total 20. After 20 the loss did not seem improving so stopped at 20. We used learning rate decay here and saved weights on every epochs. So, that we can use the final weights to predict when we create a full system.
+
+  ```python
+  model_json = model.to_json()
+  with open("model.json", "w") as json_file:
+      json_file.write(model_json)
+  ```
+
+  The above code exports the model as a JSON file, which we will also use for making prediction.
+
+  After 20 epochs, we got 69.7% training accuracy and 65.47% testing accuracy which is not state of the art but considering it is a 7 class classification, it can be called a pretty decent accuracy.
+
+## Conclusion
+
+We successfully trained a  model that can identify facial expression with a decent amount of accuracy. We can further improve the model by fine-tuning existing state of the art models like VGG-16, Resnet, etc. Which will try to do in the future. We have also implemented a flask application which can detect such expressions directly from webcam or a video stream. We will cover that topic in a separate post as it is out of the scope for this one. Though if you want to explore it the code can be found on my [Github](https://github.com/hrshcdry/Facial_Expression_Recognition).
+
+If you have any idea feel free to write at [noob@harsh.codes](mailto:noob@harsh.codes).
