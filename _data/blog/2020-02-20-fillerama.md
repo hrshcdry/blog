@@ -109,4 +109,8 @@ Now we will start with the designing process of the model.
   Found 28709 images belonging to 7 classes.
   Found 7178 images belonging to 7 classes.
   ```
+
+  Now our data is ready so we will create the model and then pass data.
 * ### Model Architecture
+
+  We will be implementing the following model is Keras which was proposed in the paper FER13:
