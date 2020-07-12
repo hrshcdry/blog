@@ -32,7 +32,7 @@ Now we will start with the designing process of the model.
 
 * ### Imports
 
-  First of all, we will import the required libraries which include numpy, seaborn, matplotlib, keras, etc. If you are reading this article then I am considering you are familiar with most of these. We have imported and additional library which is livelossplot which is used to plot the loss as we train the model. We can visualize the loss in real-time.
+  First of all, we will import the required libraries which include numpy, seaborn, matplotlib, keras, etc. If you are reading this article then I am considering you are familiar with most of these. 
 
   ```python
   import numpy as np
@@ -50,13 +50,15 @@ Now we will start with the designing process of the model.
   from tensorflow.keras.utils import plot_model
 
   from IPython.display import SVG, Image
-  from livelossplot.tf_keras import PlotLossesCallback
   import tensorflow as tf
   print("Tensorflow version:", tf.__version__)
   ```
 * ### Dataset
 
-  We will use FER2013 dataset which contains 28709 train images and 7178 test set images. The dataset was first presented in a Kaggle challenge named [Challenges in Representation Learning: Facial Expression Recognition Challenge](https://www.kaggle.com/c/challenges-in-representation-learning-facial-expression-recognition-challenge/data). You can get the dataset by clicking on the above link or from Google Drive by clicking [here](https://drive.google.com/file/d/1M-v33KWl_Tli99ShD35jpH6CP6M_OliA/view?usp=sharing). We will know more about the dataset by exploring it when we will do the preprocessing.
+  We will use FER2013 dataset which contains 28709 train images and 7178 test set images. The dataset was first presented in a Kaggle challenge named [Challenges in Representation Learning: Facial Expression Recognition Challenge](https://www.kaggle.com/c/challenges-in-representation-learning-facial-expression-recognition-challenge/data). You can get the dataset by clicking on the above link or from Google Drive by clicking [here](https://drive.google.com/file/d/1M-v33KWl_Tli99ShD35jpH6CP6M_OliA/view?usp=sharing). We will know more about the dataset by exploring it when we will do the preprocessing. Some of the images from the dataset are as follows:
+
+![](/assets/download.png "Model Architecture")
+
 * ### Preprocessing
 
   First of all we will unzip the data as it is compressed. The zip contains two folders 'train' and 'test' and both of those folder contains 7 folders in them which named as the 7 facial expressions. Each of those 7 contains images of respective expression. After unzip, we will loop through train directory and print the number of images it contain along with respective expression. 
