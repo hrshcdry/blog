@@ -275,7 +275,7 @@ After designing the model we have compiled it. For loss function we have used Ca
 
   Ouptput:
 
-  Original output is too big so I have only shown the first and last few epochs only. 
+  Original output is too big so we have shown the first and last few epochs only. 
 
   ```
   Epoch 1/20
