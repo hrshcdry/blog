@@ -325,4 +325,4 @@ After designing the model we have compiled it. For loss function we have used Ca
 
 We successfully trained a  model that can identify facial expression with a decent amount of accuracy. We can further improve the model by fine-tuning existing state of the art models like VGG-16, Resnet, etc. Which will try to do in the future. We have also implemented a flask application which can detect such expressions directly from webcam or a video stream. We will cover that topic in a separate post as it is out of the scope for this one. Though if you want to explore it, the code can be found on my [Github](https://github.com/hrshcdry/Facial_Expression_Recognition).
 
-If you have any idea feel free to write me at [me@harsh.codes](mailto:noob@harsh.codes).
+If you have any idea feel free to write me at [me@harsh.codes](mailto:me@harsh.codes).
