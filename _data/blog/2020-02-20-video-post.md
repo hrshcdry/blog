@@ -339,6 +339,6 @@ for i in range(0, detections.shape[2]):
 
 We got the following output when we passed an example image and then printed the variable "image".
 
-![](/assets/download (2).png "Example")
+![](/assets/downloadd.png "Example")
 
 ## 4. Detecting from Videos (By Extracting frames and passing through the previous pipeline in a loop)
