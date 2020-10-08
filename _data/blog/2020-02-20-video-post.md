@@ -280,8 +280,6 @@ without_mask       0.97      0.99      0.98       138
 weighted avg       0.98      0.98      0.98       276
 ```
 
-
-
 #### Transfer Learning using Mobilenet
 
 ```
@@ -341,6 +339,6 @@ for i in range(0, detections.shape[2]):
 
 We got the following output when we passed an example image and then printed the variable "image".
 
-![](/assets/download (2).png)
+![](/assets/download (2).png "Example")
 
 ## 4. Detecting from Videos (By Extracting frames and passing through the previous pipeline in a loop)
